@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  html,body{margin:0;width:1920px;height:1008px;overflow:hidden;background:#0b0b10;font-family:Inter,-apple-system,Helvetica,Arial,sans-serif}
+  .bg{position:absolute;inset:0;background:
+    radial-gradient(900px 600px at 1500px 700px, rgba(120,70,220,.28), transparent 60%),
+    radial-gradient(700px 500px at 1750px 250px, rgba(60,120,255,.14), transparent 60%),
+    #0b0b10}
+  .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);background-size:22px 22px;opacity:.5}
+  .logo{position:absolute;left:136px;top:150px;width:240px;height:52px;border:1.5px dashed rgba(255,255,255,.25);border-radius:8px;color:rgba(255,255,255,.4);font-size:18px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px}
+  h1{position:absolute;left:136px;top:300px;margin:0;color:#fff;font-weight:800;font-size:118px;line-height:1.08;letter-spacing:-2px}
+  h1 span{display:block}
+  .card{position:absolute;background:#15151d;border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);color:#c9c9d6;font-family:'JetBrains Mono',Menlo,monospace;font-size:19px;line-height:1.55;padding:26px 30px;white-space:pre}
+  .card .t{color:#fff;font-family:Inter;font-weight:700;font-size:24px;margin-bottom:4px;white-space:normal}
+  .card .s{color:#8a8a9c;font-family:Inter;font-size:16px;margin-bottom:16px;white-space:normal}
+  .k{color:#9d8cff}.v{color:#7bd7ff}.c{color:#6e6e80}
+  .tile{position:absolute;left:1450px;top:480px;width:250px;height:250px;border-radius:26px;background:linear-gradient(160deg,#1a1a24,#0f0f16);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:84px;letter-spacing:-2px;box-shadow:0 0 0 2px rgba(150,110,255,.35),0 0 80px rgba(150,110,255,.35)}
+  .tile small{display:block;font-size:22px;font-weight:500;color:#a9a3ff;letter-spacing:2px;margin-top:2px;text-align:center}
+</style></head><body>
+<div class="bg"></div><div class="dots"></div>
+<div class="logo">client logo here</div>
+<h1><span>MCP vs. API:</span><span>Key Differences</span><span>and Use Cases</span></h1>
+
+<div class="card" style="left:1180px;top:240px;width:600px;height:200px;overflow:hidden">
+<div class="t">tools/list</div><div class="s">Discovered by the model at runtime</div>{
+  <span class="k">"name"</span>: <span class="v">"fetch_page"</span>,
+  <span class="k">"description"</span>: <span class="v">"Fetch the current content of…"</span>,
+  <span class="k">"inputSchema"</span>: { <span class="k">"url"</span>: <span class="v">"string"</span> }
+}</div>
+
+<div class="card" style="left:1180px;top:480px;width:230px;height:330px;overflow:hidden">
+<div class="t">REST API</div><div class="s">Fixed in code at build time</div><span class="c">POST</span> /v2/scrape
+<span class="c">Host:</span> scraper-api
+  .decodo.com
+<span class="c">Auth:</span> Basic ****
+
+{ <span class="k">"url"</span>:
+  <span class="v">"https://…"</span> }</div>
+
+<div class="tile"><div>MCP<small>PROTOCOL</small></div></div>
+</body></html>

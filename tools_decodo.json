@@ -1,0 +1,1135 @@
+[
+ {
+  "name": "scrape_as_markdown",
+  "description": "Scrape the contents of a website and return Markdown-formatted results",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string",
+     "description": "URL to scrape"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    },
+    "locale": {
+     "type": "string",
+     "description": "Locale of the desired request"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "tokenLimit": {
+     "type": "number",
+     "description": "The number of tokens to return in the response - anything above this limit will be truncated"
+    }
+   },
+   "required": [
+    "url"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "screenshot",
+  "description": "Capture a screenshot of any webpage and return it as a PNG image",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string",
+     "description": "URL to screenshot"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    }
+   },
+   "required": [
+    "url"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "google_search",
+  "description": "Scrape Google Search results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    },
+    "locale": {
+     "type": "string",
+     "description": "Locale of the desired request"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "google_ads",
+  "description": "Scrape Google Ads search results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for Google Ads (e.g., \"laptop\")"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    },
+    "locale": {
+     "type": "string",
+     "description": "Locale of the desired request"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "pageFrom": {
+     "type": "number",
+     "description": "Starting page number for pagination"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "google_lens",
+  "description": "Scrape Google Lens image search results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Image URL for Google Lens search (e.g., \"https://example.com/image.jpg\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "google_ai_mode",
+  "description": "Scrape Google AI Mode (Search with AI) results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for Google AI Mode (e.g., \"What are the top three dog breeds?\")"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geo location for AI mode search (e.g., \"us\", \"uk\")"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "google_travel_hotels",
+  "description": "Scrape Google Travel Hotels search results",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Hotel search query (e.g., \"trivago\", \"hotels in Paris\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "locale": {
+     "type": "string",
+     "description": "Locale of the desired request"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "pageFrom": {
+     "type": "number",
+     "description": "Starting page number for pagination"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "amazon_search",
+  "description": "Scrape Amazon Search results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for Amazon products (e.g., \"wireless keyboard\")"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "domain": {
+     "type": "string",
+     "description": "Amazon domain (e.g., amazon.com, amazon.co.uk)"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "pageFrom": {
+     "type": "number",
+     "description": "Starting page number for pagination"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "amazon_product",
+  "description": "Scrape Amazon Product page with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Amazon product ASIN (e.g., \"B09H74FXNW\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "domain": {
+     "type": "string",
+     "description": "Amazon domain (e.g., amazon.com, amazon.co.uk)"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Amazon geo location (e.g., 10001 for US ZIP code)"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "amazon_pricing",
+  "description": "Scrape Amazon Product pricing information with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Amazon product ASIN (e.g., \"B09H74FXNW\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "domain": {
+     "type": "string",
+     "description": "Amazon domain (e.g., amazon.com, amazon.co.uk)"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "pageFrom": {
+     "type": "number",
+     "description": "Starting page number for pagination"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Amazon geo location (e.g., 10001 for US ZIP code)"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "amazon_sellers",
+  "description": "Scrape Amazon Seller information with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Amazon seller ID (e.g., \"A1R0Z7FJGTKESH\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "domain": {
+     "type": "string",
+     "description": "Amazon domain (e.g., amazon.com, amazon.co.uk)"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Amazon geo location (e.g., 10001 for US ZIP code)"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "amazon_bestsellers",
+  "description": "Scrape Amazon Bestsellers list with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Amazon category (e.g., \"mobile-apps\", \"electronics\")"
+    },
+    "domain": {
+     "type": "string",
+     "description": "Amazon domain (e.g., amazon.com, amazon.co.uk)"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "pageFrom": {
+     "type": "number",
+     "description": "Starting page number for pagination"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "walmart_search",
+  "description": "Scrape Walmart Search results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for Walmart products (e.g., \"camping tent\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "deliveryZip": {
+     "type": "string",
+     "description": "ZIP code for delivery location"
+    },
+    "storeId": {
+     "type": "string",
+     "description": "Walmart store ID for local inventory"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "walmart_product",
+  "description": "Scrape Walmart Product page with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "product_id": {
+     "type": "string",
+     "description": "Walmart product ID (e.g., \"15296401808\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "deliveryZip": {
+     "type": "string",
+     "description": "ZIP code for delivery location"
+    },
+    "storeId": {
+     "type": "string",
+     "description": "Walmart store ID for local inventory"
+    }
+   },
+   "required": [
+    "product_id"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "target_search",
+  "description": "Scrape Target Search results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for Target products"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "deliveryZip": {
+     "type": "string",
+     "description": "ZIP code for delivery location"
+    },
+    "storeId": {
+     "type": "string",
+     "description": "Target store ID for local inventory"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "target_product",
+  "description": "Scrape Target Product page with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "product_id": {
+     "type": "string",
+     "description": "Target product ID (e.g., \"1003921355\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "deliveryZip": {
+     "type": "string",
+     "description": "ZIP code for delivery location"
+    },
+    "storeId": {
+     "type": "string",
+     "description": "Target store ID for local inventory"
+    }
+   },
+   "required": [
+    "product_id"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "tiktok_post",
+  "description": "Scrape a TikTok post URL for structured data such as engagement, captions, and hashtags",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string",
+     "description": "TikTok post URL, e.g. https://www.tiktok.com/@user/video/1234567890"
+    },
+    "xhr": {
+     "type": "boolean",
+     "description": "When true, includes XHR/fetch responses in the scrape result where supported by the target"
+    }
+   },
+   "required": [
+    "url"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "tiktok_shop_search",
+  "description": "Scrape TikTok Shop Search results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for TikTok Shop products"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "country": {
+     "type": "string",
+     "description": "Country code for the request (e.g., US, GB, DE)"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "tiktok_shop_product",
+  "description": "Scrape TikTok Shop Product page",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "product_id": {
+     "type": "string",
+     "description": "TikTok Shop product ID (e.g., \"1731541214379741272\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "country": {
+     "type": "string",
+     "description": "Country code for the request (e.g., US, GB, DE)"
+    }
+   },
+   "required": [
+    "product_id"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "tiktok_shop_url",
+  "description": "Scrape TikTok Shop page by URL",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string",
+     "description": "TikTok Shop URL (e.g., \"https://www.tiktok.com/shop/s?q=HEADPHONES\")"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    }
+   },
+   "required": [
+    "url"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "youtube_metadata",
+  "description": "Scrape YouTube video metadata",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "YouTube video ID (e.g., \"dFu9aKJoqGg\")"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "youtube_channel",
+  "description": "Scrape YouTube channel videos with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "YouTube channel handle or ID (e.g., \"@decodo_official\")"
+    },
+    "limit": {
+     "type": "number",
+     "description": "Maximum number of videos to return"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "youtube_subtitles",
+  "description": "Scrape YouTube video subtitles",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "YouTube video ID (e.g., \"L8zSWbQN-v8\")"
+    },
+    "language_code": {
+     "type": "string",
+     "description": "Language code for subtitles (e.g., \"en\", \"es\")"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "youtube_search",
+  "description": "Search YouTube videos",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "YouTube search query (e.g., \"How to care for chinchillas\")"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "reddit_post",
+  "description": "Scrape a specific Reddit post",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string",
+     "description": "reddit post URL (eg. https://www.reddit.com/r/hometheater/comments/1jz9xk5/lg_ubk90_only_works_when_plugged_into_tv_via)"
+    }
+   },
+   "required": [
+    "url"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "reddit_subreddit",
+  "description": "Scrape Reddit subreddit results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string",
+     "description": "URL to subreddit"
+    }
+   },
+   "required": [
+    "url"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "reddit_user",
+  "description": "Scrape a Reddit user profile and their posts/comments",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "url": {
+     "type": "string",
+     "description": "Reddit user profile URL (eg. https://www.reddit.com/user/IWasRightOnce/)"
+    }
+   },
+   "required": [
+    "url"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "bing_search",
+  "description": "Scrape Bing Search results with automatic parsing",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for Bing (e.g., \"laptop\")"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    },
+    "locale": {
+     "type": "string",
+     "description": "Locale of the desired request"
+    },
+    "jsRender": {
+     "type": "boolean",
+     "description": "Should the request be opened in a headless browser, false by default"
+    },
+    "domain": {
+     "type": "string",
+     "description": "Bing domain (e.g., bing.com, bing.co.uk)"
+    },
+    "deviceType": {
+     "type": "string",
+     "enum": [
+      "desktop",
+      "mobile",
+      "tablet"
+     ],
+     "description": "Device type to emulate for the request"
+    },
+    "pageFrom": {
+     "type": "number",
+     "description": "Starting page number for pagination"
+    }
+   },
+   "required": [
+    "query"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "chatgpt",
+  "description": "Search and interact with ChatGPT for AI-powered responses and conversations",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "prompt": {
+     "type": "string",
+     "description": "Prompt to send to ChatGPT"
+    },
+    "search": {
+     "type": "boolean",
+     "description": "Activates ChatGPT's web search functionality"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    }
+   },
+   "required": [
+    "prompt"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ },
+ {
+  "name": "perplexity",
+  "description": "Search and interact with Perplexity for AI-powered responses and conversations",
+  "inputSchema": {
+   "type": "object",
+   "properties": {
+    "prompt": {
+     "type": "string",
+     "description": "Prompt to send to Perplexity"
+    },
+    "geo": {
+     "type": "string",
+     "description": "Geolocation of the desired request, expressed as a country name"
+    }
+   },
+   "required": [
+    "prompt"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "annotations": {
+   "readOnlyHint": true,
+   "openWorldHint": true
+  },
+  "execution": {
+   "taskSupport": "forbidden"
+  }
+ }
+]

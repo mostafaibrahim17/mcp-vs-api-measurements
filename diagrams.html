@@ -1,0 +1,107 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  body{margin:0;background:#fff;font-family:Inter,-apple-system,Helvetica,Arial,sans-serif;color:#1a1a1a}
+  .fig{width:1400px;padding:40px;box-sizing:border-box;background:#fff}
+  text{font-family:Inter,sans-serif}
+  .mono{font-family:'JetBrains Mono',Menlo,monospace}
+</style></head><body>
+
+<!-- Figure 1: the stack -->
+<div class="fig" id="fig1">
+<svg width="1320" height="330" viewBox="0 0 1320 330" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b5b6b"/></marker>
+  </defs>
+  <!-- brackets -->
+  <rect x="20" y="30" width="770" height="230" rx="16" fill="#f3f0ff" stroke="#c9bfff"/>
+  <text x="40" y="60" font-size="18" font-weight="700" fill="#5a3fd6">MCP layer</text>
+  <text x="40" y="84" font-size="15" fill="#6b5fb3">runtime discovery, tools/list and tools/call</text>
+  <rect x="810" y="30" width="500" height="230" rx="16" fill="#eef6ff" stroke="#b9d6ff"/>
+  <text x="830" y="60" font-size="18" font-weight="700" fill="#1d5fb8">API layer</text>
+  <text x="830" y="84" font-size="15" fill="#3f6fa8">fixed contract, HTTP request and response</text>
+
+  <!-- boxes -->
+  <g font-size="19" font-weight="600" text-anchor="middle">
+    <rect x="40" y="120" width="170" height="90" rx="12" fill="#fff" stroke="#8d7bff" stroke-width="2"/>
+    <text x="125" y="158">AI model</text><text x="125" y="184" font-size="14" font-weight="500" fill="#666">picks a tool</text>
+
+    <rect x="300" y="120" width="170" height="90" rx="12" fill="#fff" stroke="#8d7bff" stroke-width="2"/>
+    <text x="385" y="158">MCP client</text><text x="385" y="184" font-size="14" font-weight="500" fill="#666">in the host app</text>
+
+    <rect x="560" y="120" width="190" height="90" rx="12" fill="#fff" stroke="#8d7bff" stroke-width="2"/>
+    <text x="655" y="158">MCP server</text><text x="655" y="184" font-size="14" font-weight="500" fill="#666">holds the credentials</text>
+
+    <rect x="850" y="120" width="190" height="90" rx="12" fill="#fff" stroke="#4a8fe7" stroke-width="2"/>
+    <text x="945" y="158">Your API</text><text x="945" y="184" font-size="14" font-weight="500" fill="#666">e.g. Web Scraping API</text>
+
+    <rect x="1120" y="120" width="170" height="90" rx="12" fill="#fff" stroke="#4a8fe7" stroke-width="2"/>
+    <text x="1205" y="158">Your data</text><text x="1205" y="184" font-size="14" font-weight="500" fill="#666">live web, database</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#5b5b6b" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <path d="M210,165 L298,165"/><path d="M470,165 L558,165"/><path d="M750,165 L848,165"/><path d="M1040,165 L1118,165"/>
+  </g>
+  <g font-size="13" fill="#5b5b6b" text-anchor="middle" class="mono">
+    <text x="255" y="150">tool call</text><text x="515" y="150">JSON-RPC</text><text x="799" y="150">HTTP</text><text x="1079" y="150">query</text>
+  </g>
+
+  <text x="20" y="300" font-size="15" fill="#444">Every MCP tool call ends in an API call. MCP adds the runtime layer on the left; it doesn't replace anything on the right.</text>
+</svg>
+</div>
+
+<!-- Figure 2: design time vs runtime binding -->
+<div class="fig" id="fig2">
+<svg width="1320" height="420" viewBox="0 0 1320 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b5b6b"/></marker>
+  </defs>
+  <!-- left panel: API -->
+  <rect x="20" y="20" width="620" height="370" rx="16" fill="#eef6ff" stroke="#b9d6ff"/>
+  <text x="44" y="56" font-size="20" font-weight="700" fill="#1d5fb8">API: bound at build time</text>
+  <g font-size="16" text-anchor="middle" font-weight="600">
+    <rect x="50" y="90" width="170" height="70" rx="10" fill="#fff" stroke="#4a8fe7" stroke-width="2"/>
+    <text x="135" y="120">Developer</text><text x="135" y="142" font-size="13" font-weight="500" fill="#666">reads the docs</text>
+    <rect x="270" y="90" width="170" height="70" rx="10" fill="#fff" stroke="#4a8fe7" stroke-width="2"/>
+    <text x="355" y="120">Writes code</text><text x="355" y="142" font-size="13" font-weight="500" fill="#666">against 3 endpoints</text>
+    <rect x="490" y="90" width="120" height="70" rx="10" fill="#fff" stroke="#4a8fe7" stroke-width="2"/>
+    <text x="550" y="120">Deploys</text><text x="550" y="142" font-size="13" font-weight="500" fill="#666">ships</text>
+  </g>
+  <g stroke="#5b5b6b" stroke-width="2" fill="none" marker-end="url(#arr2)"><path d="M220,125 L268,125"/><path d="M440,125 L488,125"/></g>
+  <line x1="50" y1="195" x2="610" y2="195" stroke="#b9d6ff" stroke-dasharray="6 6"/>
+  <text x="330" y="222" font-size="14" fill="#3f6fa8" text-anchor="middle">at runtime</text>
+  <g class="mono" font-size="15" fill="#1a1a1a">
+    <rect x="50" y="240" width="560" height="120" rx="10" fill="#fff" stroke="#b9d6ff"/>
+    <text x="70" y="270">GET  /products/{id}</text>
+    <text x="70" y="298">POST /orders</text>
+    <text x="70" y="326">GET  /orders/{id}</text>
+    <text x="400" y="298" fill="#888" font-size="14">fixed set. Adding one</text>
+    <text x="400" y="318" fill="#888" font-size="14">means a new release.</text>
+  </g>
+
+  <!-- right panel: MCP -->
+  <rect x="680" y="20" width="620" height="370" rx="16" fill="#f3f0ff" stroke="#c9bfff"/>
+  <text x="704" y="56" font-size="20" font-weight="700" fill="#5a3fd6">MCP: bound at runtime</text>
+  <g font-size="16" text-anchor="middle" font-weight="600">
+    <rect x="710" y="90" width="170" height="70" rx="10" fill="#fff" stroke="#8d7bff" stroke-width="2"/>
+    <text x="795" y="120">User</text><text x="795" y="142" font-size="13" font-weight="500" fill="#666">connects a server</text>
+    <rect x="930" y="90" width="170" height="70" rx="10" fill="#fff" stroke="#8d7bff" stroke-width="2"/>
+    <text x="1015" y="120">Client asks</text><text x="1015" y="142" font-size="13" font-weight="500" fill="#666" class="mono">tools/list</text>
+    <rect x="1150" y="90" width="120" height="70" rx="10" fill="#fff" stroke="#8d7bff" stroke-width="2"/>
+    <text x="1210" y="120">Model</text><text x="1210" y="142" font-size="13" font-weight="500" fill="#666">picks one</text>
+  </g>
+  <g stroke="#5b5b6b" stroke-width="2" fill="none" marker-end="url(#arr2)"><path d="M880,125 L928,125"/><path d="M1100,125 L1148,125"/></g>
+  <line x1="710" y1="195" x2="1270" y2="195" stroke="#c9bfff" stroke-dasharray="6 6"/>
+  <text x="990" y="222" font-size="14" fill="#6b5fb3" text-anchor="middle">at runtime, no release</text>
+  <g class="mono" font-size="15" fill="#1a1a1a">
+    <rect x="710" y="240" width="560" height="120" rx="10" fill="#fff" stroke="#c9bfff"/>
+    <text x="730" y="270">fetch_page      "Fetch the current..."</text>
+    <text x="730" y="298">google_search   "Search the web..."</text>
+    <text x="730" y="326" fill="#5a3fd6">+ amazon_search   added while running</text>
+  </g>
+  <text x="20" y="412" font-size="15" fill="#444">The same difference in one line: with an API the developer decides what can be called before release; with MCP the model finds out after it connects.</text>
+</svg>
+</div>
+</body></html>
