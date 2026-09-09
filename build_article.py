@@ -45,10 +45,29 @@ def code_table(m):
             f'border:1px solid #dadce0;padding:12px 14px;{MONO};line-height:1.5;white-space:pre-wrap;word-break:break-word">{inner}</td></tr></table>')
 
 
+def style_table(m):
+    t = m.group(0)
+    t = re.sub(r'<(td|th)(?:\s[^>]*)?>', r'<\1>', t)  # drop pandoc's alignment styles so ours apply
+    t = re.sub(r"^<table[^>]*>", '<table style="border-collapse:collapse;width:100%;margin:0 0 24px;font-size:15px;line-height:1.45">', t, count=1)
+    # header row as plain bold shaded cells, no <thead>/<th>, so it pastes cleanly
+    t = re.sub(r"<th>(.*?)</th>", r'<td style="background:#eef0f4;border:1px solid #d9dde3;padding:10px 12px;text-align:left;vertical-align:top"><strong>\1</strong></td>', t, flags=re.S)
+    t = t.replace("<thead>", "").replace("</thead>", "").replace("<tbody>", "").replace("</tbody>", "")
+    rows = re.split(r"(?=<tr>)", t)
+    out, i = [], 0
+    for r in rows:
+        if r.startswith("<tr>") and "<td" in r and "#eef0f4" not in r:
+            bg = "#ffffff" if i % 2 == 0 else "#f7f8fa"
+            r = re.sub(r"<td([^>]*)>", lambda mm: f'<td{mm.group(1)} style="background:{bg};border:1px solid #e3e6ea;padding:9px 12px;vertical-align:top">', r)
+            r = re.sub(r'(<td[^>]*>)([^<]+)(</td>)', lambda mm: f'{mm.group(1)}<strong>{mm.group(2)}</strong>{mm.group(3)}', r, count=1)
+            i += 1
+        out.append(r)
+    return "".join(out)
+
+
+body = re.sub(r"<table>.*?</table>", style_table, body, flags=re.S)
+
 body = re.sub(r"<pre[^>]*>(.*?)</pre>", code_table, body, flags=re.S)
 body = re.sub(r"<code>(.*?)</code>", lambda m: f'<code style="{MONO};background:#f1f3f4;padding:1px 4px;border-radius:3px">{m.group(1)}</code>', body, flags=re.S)
-body = body.replace("<table>", '<table style="border-collapse:collapse;margin:0 0 20px">')
-body = re.sub(r"<(td|th)([^>]*)>", lambda m: f'<{m.group(1)}{m.group(2)} style="border:1px solid #ddd;padding:6px 10px;vertical-align:top">', body)
 
 
 def embed(m):

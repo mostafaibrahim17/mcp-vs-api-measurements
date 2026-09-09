@@ -31,7 +31,7 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install mcp requests anthropic httpx
 ```
 
-Python 3.11 or newer. Tested with `mcp` 2.1.1. Node.js is needed only to run the public MCP servers through `npx`, and Docker only for GitHub's server.
+Python 3.11 or newer. Tested with `mcp` 2.2.0. Node.js is needed only to run the public MCP servers through `npx`, and Docker only for GitHub's server.
 
 Credentials are read from environment variables and never appear in the code:
 
