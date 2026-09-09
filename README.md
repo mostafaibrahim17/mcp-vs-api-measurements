@@ -12,7 +12,7 @@ All measurements were taken on **8 September 2026**.
 
 | Question | What we did | What we found |
 | :--- | :--- | :--- |
-| What does a tool list cost in context? | Counted the tool definitions of 4 public servers with Anthropic's token counter | 222 to 447 tokens per tool. GitHub's full toolset is 39,836 tokens, 20% of a 200K window |
+| What does a tool list cost in context? | Counted the tool definitions of 4 public servers with Anthropic's token counter | 222 to 448 tokens per tool. GitHub's full toolset is 39,836 tokens, 20% of a 200K window |
 | Is MCP slower than calling the API directly? | Fetched the same page 10 times each way, then timed a model driving the tool on 10 live questions | The MCP hop is under 1 ms. The model's own turns were 71% of the wait |
 | Has anyone shipped the 2026-07-28 spec revision? | Probed all 15,653 public endpoints in the official registry | 95% of 5,872 answering servers still run a 2025 revision. 288 support the new one |
 | Do vague tool descriptions cause wrong tool calls? | 6 distinct tools, 20 questions, 200 calls, 4 description styles | 0 wrong picks. Descriptions decide only when tools overlap |
