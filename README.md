@@ -1,6 +1,6 @@
 # MCP vs API: the measurements
 
-Scripts and data behind the article **[MCP vs API: Understanding the Differences and Use Cases](https://decodo.com/blog/mcp-vs-api)**.
+Scripts and data behind the article **MCP vs API: Understanding the Differences and Use Cases**, forthcoming on the Decodo blog at [decodo.com/blog/mcp-vs-api](https://decodo.com/blog/mcp-vs-api). The link goes live when the article is published.
 
 Every number in the article that isn't quoted from a spec was produced by something in this folder. You can rerun all of it. Nothing here needs a paid API call except the 4 model experiments, which cost a few dollars in total.
 
